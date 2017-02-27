@@ -4,7 +4,7 @@ Spring Boot RestService API
 Developed a Profile Restservice 
 
 GET Method -  fetch profile details by phone number and render JSON reponse
-POST Method - Insert Profile details using POST Method
+POST Method - Insert Profile details 
 
 Technology Used
 ----------------
