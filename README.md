@@ -46,11 +46,11 @@ Existing Phone Numbers in the database- 6121111111,6121111112,6121111113
 API takes care of below validation 
 ------------------------------------
 
-phone should be numeric 
-name should not be empty
-exp should be > 0
-email : email format
-tech should not be empty
+phone should be numeric <br>
+name should not be empty <br>
+exp should be > 0 <br>
+email : email format <br>
+tech should not be empty <br>
 
 
 1) Input JSON :  Duplicate 
