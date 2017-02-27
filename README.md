@@ -19,11 +19,11 @@ Technology Used
 Code Walkthrough
 -----------------
 
-Controller/Service
-CommonUtil is a static class which helps to validate the input
-@Valid/Command Object  and @RestControllerAdvice- validates the input POST object and incase of any Exception, ProileAdvice class with @Advice annotation will take care of sending the Exception Response 
-DAO - ibatis for Select and Insert process in H2 SQL
-messages.properties INTERNATIONALIZATION feature, configured the Client response messages 
+1 Controller/Service.
+2 CommonUtil is a static class which helps to validate the input.
+3 @Valid/Command Object  and @RestControllerAdvice- validates the input POST object and incase of any Exception, ProileAdvice class.  with @Advice annotation will take care of sending the Exception Response.
+4 DAO - ibatis for Select and Insert process in H2 SQL.
+5 messages.properties INTERNATIONALIZATION feature, configured the Client response messages.
 
 
 GET Method   - Get Profile details by phone number
