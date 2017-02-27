@@ -29,7 +29,7 @@ Code Walkthrough
 GET Method   - Get Profile details by phone number
 ----------
 
-eg: 
+eg: <br>
 URL - http://localhost:8080/profile-services/profile/6121111111  
 URL - http://localhost:8080/profile-services/profile/6121111112  
 URL - http://localhost:8080/profile-services/profile/6121111113
