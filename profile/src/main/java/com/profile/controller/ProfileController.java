@@ -4,7 +4,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.profile.messages.Messages;
 import com.profile.model.Profile;
+import com.profile.model.ProfileContact;
 import com.profile.response.APIRepsonse;
 import com.profile.service.ProfileService;
 import com.profile.validator.ProfileValidator;
@@ -28,6 +28,9 @@ public class ProfileController {
 
  	@Autowired 
 	ProfileService profileService; 
+ 	
+ 	
+ 	@Autowired 
 
  	public ProfileService getProfileService() {
 		return profileService;
@@ -75,5 +78,13 @@ public class ProfileController {
 		profileService.insertProfile(profile);
 	    return profile;
 	 }
+	 
+	 @ResponseStatus(value = HttpStatus.OK)
+	 @RequestMapping(value = "/profileContact/{phoneNum}", method = RequestMethod.GET)
+	 public ProfileContact profileContact(@PathVariable String phoneNum) {
+		 return  profileService.getProfileContactBO();
+	 }
+	 
+	 
 
 }

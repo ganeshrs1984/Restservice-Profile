@@ -1,17 +1,23 @@
 package com.profile.service;
 
 
+import java.io.File;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
+import com.profile.config.UnmarshellExample;
 import com.profile.dao.ProfileMapper;
 import com.profile.exception.ProfileError;
 import com.profile.exception.ProfileException;
 import com.profile.helper.CommonUtil;
 import com.profile.messages.Messages;
 import com.profile.model.Profile;
+import com.profile.model.ProfileContact;
 import com.profile.response.APIRepsonse;
+import com.profile.webservice.WebServiceTemplate;
 
 @Service("profileService")
 public class ProfileServiceImpl implements ProfileService{
@@ -25,7 +31,19 @@ public class ProfileServiceImpl implements ProfileService{
 	/*@Autowired 
     APIRepsonse apiResponse;*/
     
-	
+    @Qualifier("profileWebServiceTemplate")
+    @Autowired
+    WebServiceTemplate profileWebServiceTemplate;
+    
+    @Qualifier("xmlBean")
+    @Autowired
+    UnmarshellExample helloXml;
+
+    //the qualifier should be bean ID
+    @Qualifier("jsonBean")
+    @Autowired
+    UnmarshellExample helloJson;
+    
 	public APIRepsonse getProfileDetails(String phone){
 		APIRepsonse apiResponse = new APIRepsonse();
 		if(!CommonUtil.isPhoneNumberValid(phone)){
@@ -79,5 +97,14 @@ public class ProfileServiceImpl implements ProfileService{
 	public void setMessage(Messages message) {
 		this.message = message;
 	}
-
+ 
+	@Override
+	public ProfileContact getProfileContactBO() {
+		 ClassLoader classLoader = getClass().getClassLoader();
+		 File file = new File(classLoader.getResource("InputXml/input.xml").getFile());
+		 helloXml.printMessage();
+		 helloJson.printMessage();
+		return  profileWebServiceTemplate.callWebservice(file);
+	}
+	
 }
