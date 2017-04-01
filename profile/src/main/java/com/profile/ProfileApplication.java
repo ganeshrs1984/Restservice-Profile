@@ -11,6 +11,7 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
+//Profile APp
 @SpringBootApplication
 public class ProfileApplication {
 
@@ -33,5 +34,6 @@ public class ProfileApplication {
 		return messageSource;
 	}
 	
+ 
 	
 }
