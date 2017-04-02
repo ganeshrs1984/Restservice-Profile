@@ -12,13 +12,11 @@ public class Resources {
 
 	@Bean(name="xmlBean")
     public UnmarshellExample helloXml() {
-		System.out.println("I am here");
         return new XmlUnmarshellImpl();
     }
 	
 	@Bean(name="jsonBean")
     public UnmarshellExample helloJson() {
-		System.out.println("I am here");
         return new JsonUnmarshellImpl();
     }
 	
@@ -31,4 +29,6 @@ public class Resources {
 	public Unmarsheller getXmlUnmarshellObj(){
 		return new XmlUnmarshellersImpl();
 	}
+	
+	
 }
